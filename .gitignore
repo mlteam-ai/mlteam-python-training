@@ -21,3 +21,5 @@
 __pycache__/
 *.code-workspace
 .DS_Store
+example.txt
+.env
