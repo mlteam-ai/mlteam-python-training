@@ -1,8 +1,11 @@
 import speech_recognition as sr
+from pydub import AudioSegment
+from pydub.playback import play
 
 class SpeechProcessing:
     def __init__(self) -> None:
         self.recognizer = sr.Recognizer()
+
     def listen(self):
         with sr.Microphone() as micinput:
             self.recognizer.adjust_for_ambient_noise(micinput, duration=1)
@@ -30,5 +33,7 @@ class SpeechProcessing:
             except Exception as error:
                 print("Exception occurred:", error)
             return text
+        
     def speak(self):
-        pass
+        audio = AudioSegment.from_file("temp.mp3", format="mp3")
+        play(audio)
