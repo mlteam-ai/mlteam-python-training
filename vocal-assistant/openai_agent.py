@@ -20,7 +20,7 @@ class OpenAIAgent:
         )
         return response.choices[0].message.content
     
-    def get_response(self, command):
+    def handle_command(self, command):
         messages=[
             {"role": "system", "content": "You are a vocal assistant. You have to answer in a simple, efficient and concise way. Your answer should not take more than 30 seconds to say out loud"},
         ]
@@ -32,7 +32,10 @@ class OpenAIAgent:
 
         if assistant_reply:
             # Add the question from user, and reply from GPT to the memory 
-            self.memory.extend({"role": "user", "content": command}, {"role": "assistant", "content": assistant_reply})
+            self.memory.extend([
+                {"role": "user", "content": command},
+                {"role": "assistant", "content": assistant_reply}
+            ])
             # Make sure that memory is always in limits. If the limit is 10, then it will take most recent 10 elements.
             self.memory = self.memory[-self.memory_limit:]
         return assistant_reply
@@ -41,7 +44,7 @@ class OpenAIAgent:
         messages=[
             {"role": "system", "content": "You are a vocal assistant."},
             {"role": "system", "content": "Your role is to classify the user's command and return only the corresponding label."},
-            {"role": "system", "content": "The labels are: to-do list, normal question"},
+            {"role": "system", "content": "The labels are: to-do list, weather, normal question"},
             {"role": "system", "content": "If you recognize the user's command as a to-do list request (for example), then return 'to-do list'."},
             {"role": "user", "content": command},
         ]
@@ -97,4 +100,15 @@ class OpenAIAgent:
         for index, task in enumerate(tasks):
             messages.append({"role": "system", "content": f"{index+1}: {task},"},)
         messages.append({"role": "user", "content": command})
+        return self.__create_chat_completion(messages)
+    
+    def extract_information(self, info, command):
+        messages=[
+            {"role": "system", "content": "You are an AI assistant tasked with extracting specific information from user commands."},
+            {"role": "system", "content": f"Extract the following detail: {info}."},
+            {"role": "system", "content": f"If the user's message contains any '{info}', then return only that detail."},
+            {"role": "system", "content": f"If the user's message does not contain any '{info}', then return only 'none'."},
+            {"role": "system", "content": f"Remember, your response should only contain the {info} or 'none'."},
+            {"role": "user", "content": command},
+        ]
         return self.__create_chat_completion(messages)
