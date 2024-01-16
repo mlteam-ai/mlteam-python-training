@@ -10,6 +10,8 @@ class OpenAIAgent:
     def __init__(self, model="gpt-3.5-turbo") -> None:
         self.model = model
         self.client = openai.OpenAI()
+        self.memory = []
+        self.memory_limit = 10
 
     def __create_chat_completion(self, messages):
         response = self.client.chat.completions.create(
@@ -21,9 +23,19 @@ class OpenAIAgent:
     def get_response(self, command):
         messages=[
             {"role": "system", "content": "You are a vocal assistant. You have to answer in a simple, efficient and concise way. Your answer should not take more than 30 seconds to say out loud"},
-            {"role": "user", "content": command},
         ]
-        return self.__create_chat_completion(messages)
+        # Add the memory of previous interactions to the request
+        messages.extend(self.memory)
+        messages.append({"role": "user", "content": command})
+
+        assistant_reply = self.__create_chat_completion(messages)
+
+        if assistant_reply:
+            # Add the question from user, and reply from GPT to the memory 
+            self.memory.extend({"role": "user", "content": command}, {"role": "assistant", "content": assistant_reply})
+            # Make sure that memory is always in limits. If the limit is 10, then it will take most recent 10 elements.
+            self.memory = self.memory[-self.memory_limit:]
+        return assistant_reply
     
     def get_command_label(self, command):
         messages=[
@@ -39,6 +51,7 @@ class OpenAIAgent:
         response = self.client.audio.speech.create(
             model="tts-1",
             voice="alloy",
+            speed=1.5,
             input=text,
         )
         response.stream_to_file(file)
