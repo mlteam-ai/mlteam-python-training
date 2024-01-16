@@ -1,10 +1,12 @@
 import speech_recognition as sr
 from pydub import AudioSegment
 from pydub.playback import play
+from openai_agent import OpenAIAgent
 
 class SpeechProcessing:
     def __init__(self) -> None:
         self.recognizer = sr.Recognizer()
+        self.openai_agent = OpenAIAgent()
 
     def listen(self):
         with sr.Microphone() as micinput:
@@ -34,6 +36,8 @@ class SpeechProcessing:
                 print("Exception occurred:", error)
             return text
         
-    def speak(self):
-        audio = AudioSegment.from_file("temp.mp3", format="mp3")
+    def speak(self, text):
+        temp_audio_file = "temp.mp3"
+        self.openai_agent.get_audio_from_text(text, temp_audio_file)
+        audio = AudioSegment.from_file(temp_audio_file, format="mp3")
         play(audio)

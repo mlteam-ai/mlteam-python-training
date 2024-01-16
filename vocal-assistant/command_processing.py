@@ -6,3 +6,7 @@ class CommandProcessing:
 
     def handle_command(self, command):
         return self.openai_agent.get_command_label(command)
+    
+    def get_approve_deny(self, command):
+        return self.openai_agent.get_approve_deny(command)
+    
