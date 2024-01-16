@@ -88,7 +88,7 @@ class OpenAIAgent:
     
     def recognize_todo(self, tasks, command):
         messages=[
-            {"role": "system", "content": "Your task is to match the user's command to one of the elements of a todo list."},
+            {"role": "system", "content": "Your task is to match the user's command to the one of the elements of a todo list."},
             {"role": "system", "content": "The user wants to remove a specific task from their todo list."},
             {"role": "system", "content": "Identify the task from their command."},
             {"role": "system", "content": "If you find a task that matches their request, return the exact task text, nothing more. else return 'none'"},

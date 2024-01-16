@@ -1,12 +1,10 @@
 from speech_processing import SpeechProcessing
-from command_processing import CommandProcessing
 from openai_agent import OpenAIAgent
 from todo_manager import TodoManager
 
 class MainApp:
     def __init__(self) -> None:
         self.speech_processor = SpeechProcessing()
-        self.command_processor = CommandProcessing()
         self.openai_agent = OpenAIAgent()
         self.todo_manager = TodoManager()
     
@@ -15,7 +13,7 @@ class MainApp:
             command = self.speech_processor.listen()
             if command != "":
 
-                label = self.command_processor.handle_command(command)
+                label = self.openai_agent.get_command_label(command)
                 print("Command label recognized by GPT:", label)
 
                 if label == "to-do list":

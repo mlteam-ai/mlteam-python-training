@@ -1,12 +1,10 @@
 from openai_agent import OpenAIAgent
 from speech_processing import SpeechProcessing
-from command_processing import CommandProcessing
 
 class TodoManager:
     def __init__(self) -> None:
         self.openai_agent = OpenAIAgent()
         self.speech_processor = SpeechProcessing()
-        self.command_processor = CommandProcessing()
         self.tasks = []
     
     def add_to_list(self, item):
@@ -23,7 +21,7 @@ class TodoManager:
         if item in self.tasks:
             self.speech_processor.speak(f"Do you want to remove '{item}' from your to-do list?")
             decision = self.speech_processor.listen()
-            decision = self.command_processor.get_approve_deny(decision)
+            decision = self.openai_agent.get_approve_deny(decision)
             if decision == "approve":
                 self.tasks.remove(item)
                 self.speech_processor.speak(f"'{item}' is successfully removed from your to-do list!")
