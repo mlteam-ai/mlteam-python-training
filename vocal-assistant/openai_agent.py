@@ -44,7 +44,7 @@ class OpenAIAgent:
         messages=[
             {"role": "system", "content": "You are a vocal assistant."},
             {"role": "system", "content": "Your role is to classify the user's command and return only the corresponding label."},
-            {"role": "system", "content": "The labels are: to-do list, weather, normal question"},
+            {"role": "system", "content": "The labels are: to-do list, weather, trivia, joke, normal question"},
             {"role": "system", "content": "If you recognize the user's command as a to-do list request (for example), then return 'to-do list'."},
             {"role": "user", "content": command},
         ]
@@ -53,8 +53,8 @@ class OpenAIAgent:
     def get_audio_from_text(self, text, file):
         response = self.client.audio.speech.create(
             model="tts-1",
-            voice="alloy",
-            speed=1.5,
+            voice="nova",
+            speed=1,
             input=text,
         )
         response.stream_to_file(file)
@@ -112,3 +112,31 @@ class OpenAIAgent:
             {"role": "user", "content": command},
         ]
         return self.__create_chat_completion(messages)
+    
+    def rephrase(self, text):
+        messages=[
+            {"role": "system", "content": "You are a helpful rephrasing assistant. You need to rephrase a vocal assistant message in a different yet equivalent way."},
+            {"role": "system", "content": "Keep the same meaning and avarage length, but change the structure and words when possible."},
+            {"role": "system", "content": "Try to avoid using uncommon or complicated words in the rephrased version, keep it simple."},
+            {"role": "system", "content": "Keep in mind that the text should be simple and concise, and should not take more than 20 seconds to say out loud."},
+            {"role": "user", "content": text},
+        ]
+        return self.__create_chat_completion(messages)
+    
+    def check_trivia_answer(self, correct_answer, user_answer):
+        messages = [
+            {"role": "system", "content": "You are an AI assistant."},
+            {"role": "system", "content": "You will be given an answer from a user to a trivia question."},
+            {"role": "system", "content": "The user might use phrases like 'I think', 'Maybe', 'I believe', etc..."},
+            {"role": "system", "content": "But you need to focus on the main content of the answer."},
+            {"role": "system", "content": "Your role is to classify the user's answer and return only the corresponding label."},
+            {"role": "system", "content": "The labels are: 'true' and 'false'."},
+            {"role": "system", "content": "If you recognize the user's answer is correct (for example), then return 'true'."},
+            {"role": "user", "content": f"The correct answer to the trivia question is '{correct_answer}'. The person answered '{user_answer}'. Is the person's answer correct ?"},
+
+        ]
+        verdict = self.__create_chat_completion(messages)
+        if verdict == "true":
+            return True
+        else:
+            return False

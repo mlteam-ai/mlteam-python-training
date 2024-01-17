@@ -12,4 +12,4 @@ pip3 install python-dotenv
 brew install ffmpeg
 pip3 install pydub
 
-pi3 install requests
+pip3 install requests

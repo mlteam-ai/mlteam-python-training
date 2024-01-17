@@ -33,7 +33,7 @@ class TodoManager:
         text = "Here is what is in your todo list:"
         for index, todo in enumerate(self.tasks):
             text += f"{index + 1}: {todo}. "
-        self.speech_processor.speak(text)
+        self.speech_processor.speak(text, rephrase=False)
 
     def handle_command(self, command):
         label = self.openai_agent.get_todo_command_label(command)
