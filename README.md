@@ -4,7 +4,7 @@
 
 This project is developed for people who are experienced in software engineering, but new to Pyhthon and OpenAI.
 
-This project is based on the content of a course in Udemy called [5-in-1 Mega Course: Python, Javascript, React JS, CSS, AI](https://deliveryhero.udemy.com/course/python-ai-crashcourse/learn/lecture/41713364#overview). If you want to spend more time or rather prefer to watch videos while learning, you can also take this course. Here we do not cover the Web part of the course.
+It is based on the content of a course in Udemy called [5-in-1 Mega Course: Python, Javascript, React JS, CSS, AI](https://deliveryhero.udemy.com/course/python-ai-crashcourse/learn/lecture/41713364#overview). If you want to spend more time or rather prefer to watch videos while learning, you can also take this course. Here we do not cover the Web part of the course.
 
 In the root folder you will find two jupiter notebooks [^1], which cover all the concepts, structs and syntax of Python. If you have a limited time, looking for a fast-track way of learning Python, you can just use these notebooks to understand and play around with them, instead of taking days of courses, watching hours of videos. 
 
