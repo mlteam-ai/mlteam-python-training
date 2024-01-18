@@ -1,4 +1,4 @@
-# Python Training by MLTeam
+# Python and OpenAI Training by MLTeam
 
 ## Overview
 
@@ -29,7 +29,7 @@ Apart from these noteboooks, you will also find a sample application called 'voc
 ## Prerequisites
 1. Pyhton: You need to install [Python](https://www.python.org/downloads/) to your operating system. This project is tested in Python 3.12.1.
     * Remember to add Python to your PATH. In mac, you can do so by running 'Update Shell Profile.command' in your Python folder.
-    * You can check if the installation is succesfulcby running `python3 --version` command in your terminal/shell. 
+    * You can check if the installation is succesful by running `python3 --version` command in your terminal/shell. 
 2. You will need an editor to run the notebooks.
     * You can install [VS Code](https://code.visualstudio.com/Download).
     * Once VS Code is installed, you will also need to install [Python extension](https://marketplace.visualstudio.com/items?itemName=ms-python.python)

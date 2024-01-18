@@ -2,12 +2,12 @@
 This project is based on the content of a course in Udemy called [5-in-1 Mega Course: Python, Javascript, React JS, CSS, AI](https://deliveryhero.udemy.com/course/python-ai-crashcourse/learn/lecture/41713364#overview).
 
 # Overview
-Vocal assistant continously listens the user's microphone. When they speak, it classifies the command as 'to-do list', 'weather', 'trivia', 'joke', 'normal question'. Then it interacts with the user in a vocal way. For each tyep of command, it does the following:
-* **'to-do list'**: You can add, remove items to your to-do list. You can list the items in your to-do list.
-* **'weather'**: You can ask the whether in a specific location/city. For this, it is integrated to [weather api](https://www.weatherapi.com/).
-* **'trivia'**: It can ask you a trivia question, listen your response and tell you if it was correct or not. For this, it is integrated to [the trivia api](https://the-trivia-api.com/).
-* **'joke'**: It tells you a joke. For this, it is integrated to [API ninjas](https://api-ninjas.com/).
-* **'normal question'**: It gets your question and replies back using [Chat Completions API of Open AI](https://platform.openai.com/docs/guides/text-generation/chat-completions-api) with gpt-3.5-turbo as the model.
+Vocal assistant continously listens the user's microphone. When they speak, it classifies the command as 'to-do list', 'weather', 'trivia', 'joke' or 'normal question'. Then it interacts with the user in a vocal way. For each type of command, it does the following:
+* **to-do list**: You can add, remove items to your to-do list. You can list the items in your to-do list. All by speaking.
+* **weather**: You can ask the whether in a specific location/city. For this, it is integrated to [weather api](https://www.weatherapi.com/).
+* **trivia**: It can ask you a trivia question, listen your response and tell you if your answer was correct or not. For this, it is integrated to [the trivia api](https://the-trivia-api.com/).
+* **joke**: It tells you a joke. For this, it is integrated to [API ninjas](https://api-ninjas.com/).
+* **normal question**: It gets your question and replies back using [Chat Completions API of Open AI](https://platform.openai.com/docs/guides/text-generation/chat-completions-api) with gpt-3.5-turbo as the model.
 
 # Installation
 
