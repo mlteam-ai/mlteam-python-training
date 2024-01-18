@@ -11,9 +11,9 @@ Vocal assistant continously listens the user's microphone. When they speak, it c
 
 # Installation
 
-## 1. Setting up '.env' file
+## 1. Setting up the '.env' file
 * Create a '.env' file in the [vocal_assistant](.) folder.
-* You need to subscribe to OpenAI, configure your billing settings, get your API key and put it in '.env' file with 'OPENAI_API_KEY' name.
+* You need to subscribe to [OpenAI](https://platform.openai.com/docs/quickstart/account-setup), configure your [billing settings](https://platform.openai.com/account/billing/overview), get your API key and put it in '.env' file with 'OPENAI_API_KEY' name.
 * You need to subscribe to [weather api](https://www.weatherapi.com/), choose the free plan, get your API key and put it in '.env' file with 'WEATHER_API_KEY' name.
 * You need to subscribe to [API ninjas](https://api-ninjas.com/), choose the free plan, get your API key and put it in '.env' file with 'APININJA_API_KEY' name. 
 * If any of your API keys contains an equal sign (=), you need to enclose it in quotes(").

@@ -24,7 +24,7 @@ In the root folder you will find two jupiter notebooks [^1], which cover all the
     * Dotenv
     * List comprehension
 
-Apart from these noteboooks, you will also find a sample application called 'vocal assistant', you will learn much more when you play around with it. For the details of 'vocal-assistant', please refer to its [readme file](./vocal-assistant/README.md)
+Apart from these noteboooks, you will also find a sample application called 'vocal assistant', you will learn much more when you play around with it. For the details of 'vocal-assistant', please refer to its [readme file](./vocal-assistant/README.md).
 
 ## Prerequisites
 1. Pyhton: You need to install [Python](https://www.python.org/downloads/) to your operating system. This project is tested in Python 3.12.1.
@@ -32,6 +32,6 @@ Apart from these noteboooks, you will also find a sample application called 'voc
     * You can check if the installation is succesful by running `python3 --version` command in your terminal/shell. 
 2. You will need an editor to run the notebooks.
     * You can install [VS Code](https://code.visualstudio.com/Download).
-    * Once VS Code is installed, you will also need to install [Python extension](https://marketplace.visualstudio.com/items?itemName=ms-python.python)
+    * Once VS Code is installed, you will also need to install [Python extension](https://marketplace.visualstudio.com/items?itemName=ms-python.python).
 
 [^1]: A notebook is a shareable document that combines computer code, plain language descriptions, data, rich visualizations like 3D models, charts, graphs and figures, and interactive controls. A notebook, along with an editor (like JupyterLab or VS Code with Python extension), provides a fast interactive environment for prototyping and explaining code, exploring and visualizing data, and sharing ideas with others.
