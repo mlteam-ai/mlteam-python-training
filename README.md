@@ -23,6 +23,7 @@ In the root folder you will find two jupiter notebooks [^1], which cover all the
     * Enumeration
     * Dotenv
     * List comprehension
+    * Virtual environments
 
 Apart from these noteboooks, you will also find a sample application called 'vocal assistant', you will learn much more when you play around with it. For the details of 'vocal-assistant', please refer to its [readme file](./vocal-assistant/README.md).
 
