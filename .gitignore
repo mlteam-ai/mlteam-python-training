@@ -24,3 +24,4 @@ __pycache__/
 example.txt
 .env
 temp.mp3
+my_virtual_env/
