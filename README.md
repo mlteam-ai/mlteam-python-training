@@ -2,7 +2,7 @@
 
 ## Overview
 
-This project is developed for people who are experienced in software engineering, but new to Pyhthon and OpenAI.
+This project is developed for people who are experienced in software engineering, but new to Python and OpenAI.
 
 It is based on the content of a course in Udemy called [5-in-1 Mega Course: Python, Javascript, React JS, CSS, AI](https://www.udemy.com/course/python-ai-crashcourse/). If you want to spend more time or rather prefer to watch videos while learning, you can also take this course. Here we do not cover the Web part of the course.
 
